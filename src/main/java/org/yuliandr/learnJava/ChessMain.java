@@ -21,6 +21,8 @@ public class ChessMain {
         }
         HashMap<String, Piece> pieces = main.createPieces();
             System.out.println(pieces);
+        System.out.println("\n");
+        main.play(players,pieces);
 
 
 
@@ -43,7 +45,7 @@ public class ChessMain {
         Piece blackKing = new King(new Spot("d", 8), "b_k", false);
         Piece whiteRook1 = new Rook(new Spot("g", 7), "w_r1", true);
         Piece whiteRook2 = new Rook(new Spot("a", 7), "w_r2", true);
-        Piece blackKnight = new Knight(new Spot("a", 6), "b_k", false);
+        Piece blackKnight = new Knight(new Spot("a", 6), "b_kn", false);
         HashMap<String, Piece> pieces = new HashMap<>();
         pieces.put(whiteKing.getId(), whiteKing);
         pieces.put(blackKing.getId(), blackKing);
@@ -51,5 +53,11 @@ public class ChessMain {
         pieces.put(whiteRook2.getId(), whiteRook2);
         pieces.put(blackKnight.getId(), blackKnight);
         return pieces;
+    }
+
+    public void play(ArrayList<Player> players, HashMap<String,Piece> pieceHashMap){
+        //first move
+        players.get(0).movePieces(pieceHashMap.get("w_r1"),new Spot("a",8));
+        players.get(1).movePieces(pieceHashMap.get("b_kn"),new Spot("c",8));
     }
 }
