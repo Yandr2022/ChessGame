@@ -1,5 +1,7 @@
 package org.yuliandr.learnJava.model.entity;
 
+import org.yuliandr.learnJava.model.entity.abstraction.Piece;
+
 import static org.yuliandr.learnJava.util.Validation.numberValidate;
 import static org.yuliandr.learnJava.util.Validation.stringValidate;
 
@@ -111,6 +113,11 @@ public class Player {
         } else {
             throw new IllegalArgumentException(String.format("The age must be between %d and %d", MIN_AGE, MAX_RANK));
         }
+    }
+
+    public void movePieces(Piece piece, Spot spot) {
+        piece.setSpot(spot);
+        System.out.printf("%s %s is moved to: %s\n", piece.isWhite() ? "white" : "black", piece.getName(), spot);
     }
 
     @Override
