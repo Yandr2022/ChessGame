@@ -116,6 +116,9 @@ public class Player {
     }
 
     public void movePieces(Piece piece, Spot spot) {
+        if (isWhite()!= piece.isWhite()){
+            throw new IllegalArgumentException("Incorrect piece color");
+        }
         piece.setSpot(spot);
         System.out.printf("%s %s is moved to: %s\n", piece.isWhite() ? "white" : "black", piece.getName(), spot);
     }

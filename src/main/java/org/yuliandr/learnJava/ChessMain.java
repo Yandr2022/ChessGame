@@ -6,10 +6,6 @@ import org.yuliandr.learnJava.model.entity.abstraction.Piece;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/**
- * Hello world!
- *
- */
 public class ChessMain {
     public static void main(String[] args) {
 
@@ -57,7 +53,12 @@ public class ChessMain {
 
     public void play(ArrayList<Player> players, HashMap<String,Piece> pieceHashMap){
         //first move
-        players.get(0).movePieces(pieceHashMap.get("w_r1"),new Spot("a",8));
+       try {
+           players.get(0).movePieces(pieceHashMap.get("w_r1"),new Spot("a",8));
+       }catch (IllegalArgumentException e){
+           System.out.println("The move is incorrect, please try again");
+           //retry logic
+       }
         players.get(1).movePieces(pieceHashMap.get("b_kn"),new Spot("c",8));
     }
 }

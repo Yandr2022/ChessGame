@@ -5,6 +5,9 @@ public class Spot {
     private int y;
 
     public Spot(String x, int y) {
+        if (x.compareToIgnoreCase("h") > 0|| y>8||y<=0 ) {
+           throw new IllegalArgumentException("Wrong coordinates");
+        }
         this.x = x;
         this.y = y;
     }
