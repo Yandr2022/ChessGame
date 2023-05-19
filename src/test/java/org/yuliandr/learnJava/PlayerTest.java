@@ -91,6 +91,7 @@ public class PlayerTest {
         });
     }
 
+
     @Test
     public void invalidMoveWhiteFigure() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
